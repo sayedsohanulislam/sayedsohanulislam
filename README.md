@@ -1,5 +1,5 @@
 <h1 align="center">Hello there👋, I'm Sayed Sohanul Islam</h1>
-<h3 align="center">An undergrad student and a passionate learner from BRAC University, Bangladesh</h3>
+<h3 align="center">An undergrad CS student and a passionate learner from BRAC University, Bangladesh</h3>
 
 - 🔭 I’m currently working on **a project named "Conference Management System".**
 
