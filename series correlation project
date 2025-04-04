@@ -1,0 +1,43 @@
+# Series Correlation Project
+
+## Import Libraries
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Set Plotting Style
+plt.style.use('ggplot')
+from matplotlib.pyplot import figure
+matplotlib.rcParams['figure.figsize'] = (12, 8)
+
+# Read Data
+df = pd.read_csv('name.basics.tsv', sep='\t')
+print(df.head())
+
+# Checking Missing Values Percentages
+for col in df.columns:
+    missing = np.mean(df[col].isnull())
+    print('{} - {}%'.format(col, missing))
+
+# Data Types
+print(df.dtypes)
+
+# Handling Missing Values
+df['votes'] = df['votes'].replace([np.nan], 0)
+df['budget'] = df['budget'].replace([np.nan], 0)
+df['gross'] = df['gross'].replace([np.nan], 0)
+
+# Changing Data Types
+df['votes'] = df['votes'].astype('int64')
+df['budget'] = df['budget'].astype('int64')
+df['gross'] = df['gross'].astype('int64')
+
+# Extract Year from Release Date
+df['Correct Year'] = df['released'].astype(str).str.split(',').str[-1].str.strip().str[:4]
+
+# Sort Data by Gross Earnings
+df = df.sort_values(by=['gross'], inplace=False, ascending=False)
+
+# Display Sorted Data
+print(df)
